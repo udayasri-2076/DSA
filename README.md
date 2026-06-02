@@ -9,6 +9,7 @@
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/udayasri-2076/DSA/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0217-contains-duplicate](https://github.com/udayasri-2076/DSA/tree/master/0217-contains-duplicate) |
 | [0283-move-zeroes](https://github.com/udayasri-2076/DSA/tree/master/0283-move-zeroes) |
+| [0560-subarray-sum-equals-k](https://github.com/udayasri-2076/DSA/tree/master/0560-subarray-sum-equals-k) |
 | [1480-running-sum-of-1d-array](https://github.com/udayasri-2076/DSA/tree/master/1480-running-sum-of-1d-array) |
 ## Two Pointers
 |  |
@@ -26,6 +27,7 @@
 |  |
 | ------- |
 | [0217-contains-duplicate](https://github.com/udayasri-2076/DSA/tree/master/0217-contains-duplicate) |
+| [0560-subarray-sum-equals-k](https://github.com/udayasri-2076/DSA/tree/master/0560-subarray-sum-equals-k) |
 ## Sorting
 |  |
 | ------- |
@@ -42,5 +44,6 @@
 ## Prefix Sum
 |  |
 | ------- |
+| [0560-subarray-sum-equals-k](https://github.com/udayasri-2076/DSA/tree/master/0560-subarray-sum-equals-k) |
 | [1480-running-sum-of-1d-array](https://github.com/udayasri-2076/DSA/tree/master/1480-running-sum-of-1d-array) |
 <!---LeetCode Topics End-->
