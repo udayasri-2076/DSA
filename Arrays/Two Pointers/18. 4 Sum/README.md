@@ -97,7 +97,7 @@ O(1) extra space, excluding the output list.
 
 ## 📥 Sample Input
 \`\`\`
-6 0
+6
 1 0 -1 0 -2 2
 \`\`\`
 
