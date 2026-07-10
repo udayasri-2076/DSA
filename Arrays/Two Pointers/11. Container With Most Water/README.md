@@ -75,26 +75,26 @@ O(1) — no extra data structures used.
 - Greedy pointer movement
 
 ## 📥 Sample Input
-\`\`\`
+---
 9
 1 8 6 2 5 4 8 3 7
-\`\`\`
+---
 
 ## 📤 Sample Output
-\`\`\`
+---
 49
-\`\`\`
+---
 
 ## 📖 Example
 **Input**
-\`\`\`
+---
 9
 1 8 6 2 5 4 8 3 7
-\`\`\`
+---
 **Output**
-\`\`\`
+---
 49
-\`\`\`
+---
 **Explanation**
 The maximum water is trapped between index `1` (height 8) and index `8` (height 7). Width = 7, limiting height = 7 (shorter wall), so area = 7 × 7 = 49 — the largest possible among all pairs.
 
