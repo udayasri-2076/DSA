@@ -1,137 +1,117 @@
-# 🚀 Move Zeroes
-
+# 🎯 4Sum
 ## 📌 Problem Statement
-
-Given an integer array `nums`, move all `0`s to the end of the array while maintaining the relative order of the non-zero elements.
-
-**Note:** The operation must be performed **in-place** without making a copy of the array.
-
+Given an array `nums` and an integer `target`, find all unique quadruplets `[nums[i], nums[j], nums[l], nums[r]]` such that `nums[i] + nums[j] + nums[l] + nums[r] == target`.
+**Note:** The four indices used in each quadruplet must be distinct, and the solution set must not contain duplicate quadruplets.
 ---
-
 ## 📝 Approach
-
-This problem can be solved efficiently using the **Two Pointer** technique.
-
-- Use one pointer (`left`) to track the position where the next non-zero element should be placed.
-- Use another pointer (`right`) to traverse the array.
-- Whenever a non-zero element is encountered:
-  - Swap `nums[left]` and `nums[right]`.
-  - Increment `left`.
-- After one complete traversal, all non-zero elements will be placed at the beginning while all zeros automatically move to the end.
-
+This problem can be solved efficiently using the **Two Pointer** technique (an extension of 3Sum).
+- Sort the array first, so duplicates can be skipped and two pointers can be used.
+- Fix two elements `nums[i]` and `nums[j]` using nested loops.
+- Use two pointers `l` (starting right after `j`) and `r` (starting at the end) to find the remaining two numbers.
+- Whenever a valid quadruplet is found:
+  - Add it to the result.
+  - Move `l` and `r` inward, skipping duplicates.
+- If `sum > target`, move `r` left. If `sum < target`, move `l` right.
 ---
-
 ## 🔄 Algorithm
-
-1. Read the size of the array.
+1. Read the size of the array and the target value.
 2. Store all array elements.
-3. Initialize a pointer `left = 0`.
-4. Traverse the array using pointer `right` from `0` to `n - 1`.
-5. If `nums[right]` is not `0`:
-   - Swap `nums[left]` and `nums[right]`.
-   - Increment `left`.
-6. Print the modified array.
-
+3. Sort the array.
+4. Initialize an empty result list.
+5. Loop `i` from `0` to `n - 1`, skipping duplicate `i` values.
+6. Loop `j` from `i + 1` to `n - 1`, skipping duplicate `j` values.
+7. Set `l = j + 1` and `r = n - 1`.
+8. While `l < r`:
+   - If `nums[i] + nums[j] + nums[l] + nums[r] == target`, add the quadruplet, move `l++`, `r--`, and skip duplicates.
+   - If the sum is greater than `target`, decrement `r`.
+   - Otherwise, increment `l`.
+9. Print the result list.
 ---
-
 ## 💻 Java Solution
-
 ```java
 import java.util.*;
-
-public class Main {
-    public static void main(String[] args) {
-
-        Scanner in = new Scanner(System.in);
-
-        int n = in.nextInt();
-        int[] nums = new int[n];
-
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        int n = nums.length;
+        Arrays.sort(nums);
         for(int i = 0; i < n; i++) {
-            nums[i] = in.nextInt();
-        }
-
-        int left = 0;
-
-        for(int right = 0; right < n; right++) {
-            if(nums[right] != 0) {
-                int temp = nums[left];
-                nums[left] = nums[right];
-                nums[right] = temp;
-                left++;
+            if(i > 0 && nums[i] == nums[i-1]) {
+                continue;
+            }
+            for(int j = i+1; j < n; j++) {
+                if(j > i+1 && nums[j] == nums[j-1]) {
+                    continue;
+                }
+                int l = j+1;
+                int r = n-1;
+                while(l < r) {
+                    long sum = (long) nums[i] + nums[j] + nums[l] + nums[r];
+                    if(sum == target) {
+                        result.add(Arrays.asList(nums[i], nums[j], nums[l], nums[r]));
+                        l++;
+                        r--;
+                        while(l < r && nums[l] == nums[l-1]) {
+                            l++;
+                        }
+                        while(l < r && nums[r] == nums[r+1]) {
+                            r--;
+                        }
+                    }
+                    else if(sum > target) {
+                        r--;
+                    }
+                    else {
+                        l++;
+                    }
+                }
             }
         }
-
-        for(int num : nums) {
-            System.out.print(num + " ");
-        }
+        return result;
     }
 }
 ```
-
 ---
-
 ## ⏱️ Time Complexity
-
-**O(n)**
-
-- The array is traversed only once.
-
+**O(n³)**
+- Two nested loops for `i` and `j` give `O(n²)`, and the two-pointer scan takes `O(n)`.
 ---
-
 ## 💾 Space Complexity
-
 **O(1)**
-
-- No extra array or additional data structure is used.
-
+- No extra array or additional data structure is used, apart from the output list.
 ---
-
 ## 📚 Concepts Used
-
 - Arrays
+- Sorting
 - Two Pointers
-- Swapping
-- In-place Algorithm
-
+- Duplicate skipping
 ---
-
 ## 📥 Sample Input
-
 ```
-5
-0 1 0 3 12
+6 0
+1 0 -1 0 -2 2
 ```
-
 ## 📤 Sample Output
-
 ```
-1 3 12 0 0
+-2 -1 1 2
+-2 0 0 2
+-1 0 0 1
 ```
-
 ---
-
 ## 📖 Example
-
 ### Input
-
 ```
-5
-0 1 0 3 12
+6 0
+1 0 -1 0 -2 2
 ```
-
 ### Output
-
 ```
-1 3 12 0 0
+-2 -1 1 2
+-2 0 0 2
+-1 0 0 1
 ```
-
 ### Explanation
-
-The non-zero elements (`1`, `3`, `12`) maintain their original relative order, while all the zeros are moved to the end of the array. The operation is performed **in-place**, requiring no extra space.
-
+After sorting the array to `[-2, -1, 0, 0, 1, 2]`, fixing `i` and `j` in turn and scanning with `l` and `r` finds three unique quadruplets that sum to `0`, with duplicate values skipped along the way.
 ---
-
 ## 🎯 Key Takeaway
-
-The **Two Pointer** technique allows us to solve this problem in **O(n)** time and **O(1)** space by efficiently placing non-zero elements at the beginning of the array while pushing zeros to the end.
+The **Two Pointer** technique reduces the brute-force **O(n⁴)** approach down to **O(n³)** by fixing two elements and scanning the rest with converging pointers, while duplicate-skipping keeps the result unique.
