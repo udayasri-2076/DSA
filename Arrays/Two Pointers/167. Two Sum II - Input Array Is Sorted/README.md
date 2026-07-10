@@ -1,8 +1,8 @@
-# Two Sum II – Input Array Is Sorted
+# 🚀 Two Sum II – Input Array Is Sorted
 
-## Problem Statement
+## 📌 Problem Statement
 
-Given a sorted array of integers and a target value, return the **1-based indices** of the two numbers such that they add up to the target.
+Given a sorted array of integers `nums` and an integer `target`, return the 1-based indices of the two numbers such that they add up to the target.
 
 You may assume:
 
@@ -12,21 +12,21 @@ You may assume:
 
 ---
 
-## Approach
+## 📝 Approach
 
-Use the **Two Pointers** technique:
+This problem can be solved efficiently using the Two Pointer technique.
 
-- Place one pointer (`left`) at the beginning of the array.
-- Place another pointer (`right`) at the end of the array.
+- Initialize one pointer (`left`) at the beginning of the array.
+- Initialize another pointer (`right`) at the end of the array.
 - Calculate the sum of the elements at both pointers.
-- If the sum equals the target, return their **1-based indices**.
-- If the sum is smaller than the target, move the `left` pointer to the right.
-- If the sum is greater than the target, move the `right` pointer to the left.
+- If the sum equals the target, return the 1-based indices.
+- If the sum is smaller than the target, move the `left` pointer one step to the right.
+- If the sum is greater than the target, move the `right` pointer one step to the left.
 - Continue until the required pair is found.
 
 ---
 
-## Algorithm
+## 🔄 Algorithm
 
 1. Read the size of the array.
 2. Store all array elements.
@@ -35,31 +35,31 @@ Use the **Two Pointers** technique:
    - `left = 0`
    - `right = n - 1`
 5. While `left < right`:
-   - Compute `sum = arr[left] + arr[right]`.
+   - Calculate `sum = nums[left] + nums[right]`.
    - If `sum == target`, print `left + 1` and `right + 1`.
    - If `sum < target`, increment `left`.
    - Otherwise, decrement `right`.
-6. End after finding the required pair.
+6. Print the required 1-based indices.
 
 ---
 
-## Time Complexity
+## ⏱️ Time Complexity
 
-**O(n)**
+O(n)
 
-The two pointers traverse the array at most once.
+The array is traversed only once using two pointers.
 
 ---
 
-## Space Complexity
+## 💾 Space Complexity
 
-**O(1)**
+O(1)
 
 The solution uses only two pointers and does not require any extra space.
 
 ---
 
-## Concepts Used
+## 📚 Concepts Used
 
 - Arrays
 - Two Pointers
@@ -68,7 +68,7 @@ The solution uses only two pointers and does not require any extra space.
 
 ---
 
-## Sample Input
+## 📥 Sample Input
 
 ```text
 4
@@ -76,7 +76,7 @@ The solution uses only two pointers and does not require any extra space.
 9
 ```
 
-## Sample Output
+## 📤 Sample Output
 
 ```text
 1 2
@@ -84,16 +84,38 @@ The solution uses only two pointers and does not require any extra space.
 
 ---
 
-## Explanation
+## 📖 Example
 
-The numbers at positions **1** and **2** are:
+### Input
+
+```text
+4
+2 7 11 15
+9
+```
+
+### Output
+
+```text
+1 2
+```
+
+### Explanation
+
+The numbers at positions `1` and `2` are:
 
 ```text
 2 + 7 = 9
 ```
 
-Therefore, the required **1-based indices** are:
+Hence, the required 1-based indices are:
 
 ```text
 1 2
 ```
+
+---
+
+## 🎯 Key Takeaway
+
+The Two Pointer technique takes advantage of the sorted array to find the required pair in a single traversal. By adjusting the pointers based on the current sum, the solution achieves O(n) time complexity while using only constant extra space.
