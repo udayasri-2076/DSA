@@ -1,3 +1,23 @@
+/*Brute force
+
+Sort the array and print second largest element
+
+Array: 1 2 4 7 5
+Sort: 1 2 4 5 7
+print(Second largest Element)
+
+//in worst case - duplicates : 1 2 4 7 7 5
+
+Sort it- 1 2 4 5 7 7
+largest=arr[n-1]
+for(i=n-2;i>=0;i--){
+if(arr[i]!=largest){
+sl=arr[i]
+break;
+}
+}
+
+*/
 
 import java.util.*;
 public class Main
