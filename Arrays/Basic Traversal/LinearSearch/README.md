@@ -60,3 +60,24 @@ No extra space is used apart from a few variables.
 5
 4 6 3 8 2
 8
+```
+
+## Sample Output
+
+```text
+Element found at index: 3
+```
+
+## Sample Input — Element Not Present
+
+```text
+5
+4 6 3 8 2
+10
+```
+
+## Sample Output
+
+```text
+Element found at index: -1
+```
