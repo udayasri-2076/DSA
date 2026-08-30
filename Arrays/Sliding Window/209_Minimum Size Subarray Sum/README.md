@@ -48,54 +48,6 @@ No extra data structure is used.
 7. Move `left` forward by one.
 8. If `minLength` was never updated, return `0`; otherwise return `minLength`.
 
-### Dry Run
-~~~text
-nums = [2, 3, 1, 2, 4, 3]
-target = 7
-left = 0
-sum = 0
-minLength = infinity
-right = 0
-sum = 0 + 2 = 2
-2 is not >= 7, continue expanding.
-right = 1
-sum = 2 + 3 = 5
-5 is not >= 7, continue expanding.
-right = 2
-sum = 5 + 1 = 6
-6 is not >= 7, continue expanding.
-right = 3
-sum = 6 + 2 = 8
-8 is >= 7.
-minLength = min(infinity, 3-0+1) = 4
-sum = 8 - nums[0] = 8 - 2 = 6
-left = 1
-6 is not >= 7, stop shrinking.
-right = 4
-sum = 6 + 4 = 10
-10 is >= 7.
-minLength = min(4, 4-1+1) = 4
-sum = 10 - nums[1] = 10 - 3 = 7
-left = 2
-7 is >= 7.
-minLength = min(4, 4-2+1) = 3
-sum = 7 - nums[2] = 7 - 1 = 6
-left = 3
-6 is not >= 7, stop shrinking.
-right = 5
-sum = 6 + 3 = 9
-9 is >= 7.
-minLength = min(3, 5-3+1) = 3
-sum = 9 - nums[3] = 9 - 2 = 7
-left = 4
-7 is >= 7.
-minLength = min(3, 5-4+1) = 2
-sum = 7 - nums[4] = 7 - 4 = 3
-left = 5
-3 is not >= 7, stop shrinking.
-Answer = 2
-~~~
-
 ### Time Complexity
 **O(n)**
 Each element is added to the window once and removed at most once.
