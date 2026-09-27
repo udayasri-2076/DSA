@@ -1,3 +1,0 @@
-DSA Automation GitHub WRITE test.
-This file was created by FastAPI.
-This is a temporary test file.
