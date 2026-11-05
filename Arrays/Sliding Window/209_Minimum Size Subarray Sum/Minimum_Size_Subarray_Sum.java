@@ -33,7 +33,12 @@ public class Solution {
         int l = 0;                                // l = 0 (left pointer of sliding window)
         for (int r = 0; r < n; r++) {             // r = 0, 1, 2, 3, 4, 5 (right pointer expanding window)
 
-            sum = sum + nums[r];                  // Iteration 1: sum = 0 + 2 = 2 | Iteration 2: sum = 2 + 3 = 5 | Iteration 3: sum = 5 + 1 = 6 | Iteration 4: sum = 6 + 2 = 8 | Iteration 5: sum = 3 + 4 = 7 | Iteration 6: sum = 3 + 3 = 6
+            sum = sum + nums[r];                  // Iteration 1: sum = 0 + 2 = 2 
+                                                  //Iteration 2: sum = 2 + 3 = 5 //
+                                                  //Iteration 3: sum = 5 + 1 = 6 
+                                                  //Iteration 4: sum = 6 + 2 = 8 
+                                                  // Iteration 5: sum = 3 + 4 = 7 
+                                                  // Iteration 6: sum = 3 + 3 = 6
 
             while (sum >= target) {               // Condition: Iteration 4: 8 >= 7 (true) | Iteration 5: 7 >= 7 (true)
 
